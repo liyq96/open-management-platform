@@ -1,0 +1,33 @@
+server:
+  port: ${GATEWAY_SERVER_PORT:9100}
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+      routes:
+        - id: platform-auth
+          uri: lb://platform-auth
+          predicates:
+            - Path=/api/v1/auth/**
+        - id: platform-system
+          uri: lb://platform-system
+          predicates:
+            - Path=/api/v1/system/**
+
+platform:
+  gateway:
+    security:
+      public-key: ${JWT_PUBLIC_KEY:file:./config/keys/jwt-public.pem}
+      permit-paths:
+        - /api/v1/auth/login
+        - /api/v1/auth/captcha
+        - /actuator/health/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway

@@ -1,0 +1,11 @@
+server:
+  port: ${AUTH_SERVER_PORT:9200}
+
+platform:
+  auth:
+    rsa:
+      private-key: ${JWT_PRIVATE_KEY:file:./config/keys/jwt-private.pem}
+      public-key: ${JWT_PUBLIC_KEY:file:./config/keys/jwt-public.pem}
+  security:
+    jwt:
+      access-token-validity: ${JWT_ACCESS_TOKEN_VALIDITY:60m}

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: platform-system
+  config:
+    import:
+      - nacos:platform-common.yml?group=${NACOS_GROUP:PLATFORM_GROUP}&refreshEnabled=true
+      - nacos:platform-database.yml?group=${NACOS_GROUP:PLATFORM_GROUP}&refreshEnabled=false
+      - nacos:platform-system.yml?group=${NACOS_GROUP:PLATFORM_GROUP}&refreshEnabled=true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:}
+        namespace: ${NACOS_NAMESPACE:}
+        group: ${NACOS_GROUP:PLATFORM_GROUP}
+      config:
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:}
+        namespace: ${NACOS_NAMESPACE:}
+        group: ${NACOS_GROUP:PLATFORM_GROUP}

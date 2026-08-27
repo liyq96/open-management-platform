@@ -1,0 +1,9 @@
+server:
+  port: ${SYSTEM_SERVER_PORT:9300}
+
+platform:
+  system:
+    security:
+      public-key: ${JWT_PUBLIC_KEY:file:./config/keys/jwt-public.pem}
+      local-access-cache-ttl: 30s
+      local-access-cache-maximum-size: 10000

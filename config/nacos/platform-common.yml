@@ -1,0 +1,28 @@
+spring:
+  data:
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: ${REDIS_DATABASE:0}
+      timeout: 3s
+
+platform:
+  security:
+    jwt:
+      issuer: ${JWT_ISSUER:open-management-platform}
+      audience: ${JWT_AUDIENCE:platform-api}
+  internal-access:
+    enabled: ${PLATFORM_INTERNAL_ACCESS_ENABLED:false}
+    secret: ${PLATFORM_INTERNAL_ACCESS_SECRET:}
+    max-clock-skew: 30s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true

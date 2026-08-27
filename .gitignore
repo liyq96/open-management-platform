@@ -1,0 +1,49 @@
+### Java ###
+target/
+*.class
+*.log
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+
+### Eclipse ###
+.classpath
+.project
+.settings/
+
+### Visual Studio Code ###
+.vscode/
+
+### Local environment and secrets ###
+.env
+.env.*
+!.env.example
+scripts/
+doc/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+### Runtime files ###
+logs/
+tmp/
+*.pid
+
+### Project-local Maven cache ###
+.mvn/repository/
+
+### Operating system ###
+.DS_Store
+Thumbs.db
+# Frontend
+platform-web/node_modules/
+platform-web/dist/
+platform-web/.vite/
+platform-web/*.tsbuildinfo
+platform-web/vite.config.js
+platform-web/vite.config.d.ts
